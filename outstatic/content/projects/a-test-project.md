@@ -6,7 +6,7 @@ author:
   picture: 'https://avatars.githubusercontent.com/u/11407494?v=4'
 slug: 'a-test-project'
 description: ''
-coverImage: ''
+coverImage: '/images/leapfroginvest-1-MyNj.jpg'
 publishedAt: '2023-09-24T14:32:34.960Z'
 ---
 
