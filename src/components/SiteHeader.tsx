@@ -5,6 +5,7 @@ export default function SiteHeader() {
                 href="https://github.com/jorenrothman"
                 target="_blank"
                 className="inline-block"
+                aria-label="Checkout my GitHub"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +21,11 @@ export default function SiteHeader() {
                 </svg>
             </a>
 
-            <a href="mailto: hello@jorenrothman.nl" className="inline-block">
+            <a
+                href="mailto: hello@jorenrothman.nl"
+                className="inline-block"
+                aria-label="Send me an email"
+            >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 64 64"
