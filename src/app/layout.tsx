@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Karla } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
 
-const primaryFont = Inter({ subsets: ['latin'] });
+const primaryFont = Karla({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Joren Rothman',
