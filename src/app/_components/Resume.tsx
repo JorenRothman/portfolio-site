@@ -1,7 +1,7 @@
 export default function Resume() {
     return (
         <div className="c-container my-8">
-            <h2 className="text-4xl font-semibold border-b-2 border-black py-6 sticky top-0 bg-white">
+            <h2 className="text-4xl font-semibold border-b-2 border-black py-6 sticky top-0 bg-white dark:bg-black dark:text-white dark:border-white">
                 Resume
             </h2>
             <div className="grid sm:grid-cols-2 gap-12 mt-6 ">

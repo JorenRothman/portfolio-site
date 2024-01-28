@@ -5,13 +5,13 @@ import SiteHeader from '@/components/SiteHeader';
 
 export default function Home() {
     return (
-        <>
+        <div className="text-black dark:text-white dark:bg-black">
             <SiteHeader />
             <main className="">
                 <Header />
                 <Resume />
                 <Projects />
             </main>
-        </>
+        </div>
     );
 }
