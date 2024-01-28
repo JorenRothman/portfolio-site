@@ -1,6 +1,6 @@
 export default function SiteHeader() {
     return (
-        <div className="py-4 px-8 fixed top-0 right-0 flex gap-6">
+        <div className="p-4 fixed top-0 right-0 flex gap-6">
             <a
                 href="https://github.com/jorenrothman"
                 target="_blank"
@@ -9,6 +9,7 @@ export default function SiteHeader() {
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
+                    className="md:w-6 md:h-6 w-10 h-10"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -23,12 +24,12 @@ export default function SiteHeader() {
 
             <a
                 href="mailto: hello@jorenrothman.nl"
-                className="inline-block"
                 aria-label="Send me an email"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 64 64"
+                    className="md:w-6 md:h-6 w-10 h-10"
                     width="24"
                     height="24"
                 >
