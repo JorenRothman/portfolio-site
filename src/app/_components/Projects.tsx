@@ -48,7 +48,7 @@ export default function Projects() {
                         </h3>
                         <p className="mb-2">{project.description}</p>
                         <p className="mb-2">{project.date}</p>
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap gap-4">
                             {project.link && (
                                 <a href={project.link} className="underline">
                                     {project.link}

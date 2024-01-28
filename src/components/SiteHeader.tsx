@@ -1,6 +1,6 @@
 export default function SiteHeader() {
     return (
-        <div className="p-4 fixed top-0 right-0 flex gap-6">
+        <div className="p-4 fixed top-0 right-0 flex gap-6 z-10">
             <a
                 href="https://github.com/jorenrothman"
                 target="_blank"
