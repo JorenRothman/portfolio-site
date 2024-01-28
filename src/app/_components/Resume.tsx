@@ -4,7 +4,7 @@ export default function Resume() {
             <h2 className="text-4xl font-semibold border-b-2 border-black py-6 sticky top-0 bg-white">
                 Resume
             </h2>
-            <div className="grid grid-cols-2 mt-6">
+            <div className="grid sm:grid-cols-2 gap-12 mt-6 ">
                 <div>
                     <Resume.Item title="Skills">
                         <div>
