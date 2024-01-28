@@ -7,6 +7,8 @@ export default function Header() {
                     Joren Rothman
                 </h1>
                 <h2 className="text-2xl">A Dutch Full Stack Developer</h2>
+
+                <h1>hatsa</h1>
             </div>
         </header>
     );
