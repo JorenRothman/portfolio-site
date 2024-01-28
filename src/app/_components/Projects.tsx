@@ -43,9 +43,9 @@ export default function Projects() {
                         className="py-4 px-4 group even:bg-black even:text-white"
                         key={i}
                     >
-                        <h4 className="text-2xl mb-2 font-semibold">
+                        <h3 className="text-2xl mb-2 font-semibold">
                             {project.title}
-                        </h4>
+                        </h3>
                         <p className="mb-2">{project.description}</p>
                         <p className="mb-2">{project.date}</p>
                         <div className="flex gap-4">
@@ -55,7 +55,11 @@ export default function Projects() {
                                 </a>
                             )}
                             {project.github && (
-                                <a href={project.github} className="underline">
+                                <a
+                                    href={project.github}
+                                    className="underline"
+                                    aria-label={`GitHub link to ${project.title}`}
+                                >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"
