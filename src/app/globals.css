@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .c-container {
+        @apply mx-auto;
+        width: min(96%, 64rem);
+    }
+}
+
+@layer utilities {
+}
