@@ -1,14 +1,13 @@
 'use client';
 import { useGSAP } from '@gsap/react';
-import { time } from 'console';
 import gsap, { SteppedEase } from 'gsap';
 import { useRef, forwardRef } from 'react';
-import { text } from 'stream/consumers';
+import { useMediaQuery } from 'usehooks-ts';
 
 const SpellingError = forwardRef(function SpellingError(props, ref: any) {
     return (
         <svg
-            className="absolute bottom-0 left-0 pointer-events-none"
+            className="absolute bottom-0 left-0 pointer-events-none hidden sm:block"
             width="315"
             height="14"
             viewBox="0 0 315 14"
@@ -63,7 +62,7 @@ const SpellingError = forwardRef(function SpellingError(props, ref: any) {
 const MousePointer = forwardRef(function MousePointer(props, ref: any) {
     return (
         <svg
-            className="w-16 h-16 z-10 absolute pointer-events-none left-0 top-0 opacity-0 translate-x-96 translate-y-48"
+            className="w-16 h-16 z-10 hidden sm:block absolute pointer-events-none left-0 top-0 opacity-0 translate-x-96 translate-y-48"
             ref={ref}
             width="480"
             height="480"
@@ -89,7 +88,7 @@ const MousePointerClick = forwardRef(function MousePointerClick(
 ) {
     return (
         <svg
-            className="w-16 h-16  absolute pointer-events-none left-0 top-0 translate-x-96 translate-y-48"
+            className="w-16 h-16 hidden sm:block absolute pointer-events-none left-0 top-0 translate-x-96 translate-y-48"
             ref={ref}
             width="480"
             height="480"
@@ -135,7 +134,11 @@ export default function Animation() {
     const mousePointerRef = useRef<SVGSVGElement | null>(null);
     const mousePointerClickRef = useRef<SVGSVGElement | null>(null);
 
+    const isMobile = useMediaQuery('(max-width: 640px)');
+
     useGSAP(() => {
+        if (isMobile) return;
+
         const timeline = gsap.timeline({
             paused: true,
         });
@@ -218,13 +221,13 @@ export default function Animation() {
         // });
 
         timeline.play();
-    });
+    }, [isMobile]);
 
     return (
         <div className="relative">
             <h1
                 ref={textRef}
-                className="overflow-hidden pb-2 w-0 whitespace-nowrap text-6xl font-semibold mb-3"
+                className="sm:overflow-hidden sm:pb-2 sm:w-0 sm:whitespace-nowrap text-6xl font-semibold mb-3"
             >
                 Joren{' '}
                 <span className="relative ">
