@@ -148,6 +148,7 @@ export default function Animation() {
             {
                 width: '426px',
                 duration: 0.6,
+                delay: 0.6,
                 ease: SteppedEase.config(16),
             }
         );
@@ -156,6 +157,7 @@ export default function Animation() {
             spellingErrorRef.current,
             {
                 opacity: 0,
+                delay: 0.6,
             },
             {
                 opacity: 1,
