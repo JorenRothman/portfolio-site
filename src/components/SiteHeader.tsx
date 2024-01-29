@@ -1,4 +1,5 @@
 import ColourSwitcher from '@/components/ColourSwitcher';
+import { Suspense } from 'react';
 
 export default function SiteHeader() {
     return (
@@ -11,9 +12,7 @@ export default function SiteHeader() {
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="md:w-6 md:h-6 w-10 h-10"
-                    width="24"
-                    height="24"
+                    className="md:w-6 md:h-6 w-8 h-8"
                     viewBox="0 0 24 24"
                 >
                     <path
@@ -31,9 +30,7 @@ export default function SiteHeader() {
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 64 64"
-                    className="md:w-6 md:h-6 w-10 h-10"
-                    width="24"
-                    height="24"
+                    className="md:w-6 md:h-6 w-8 h-8"
                 >
                     <g fill="#000000" className="dark:fill-white">
                         <path
@@ -49,7 +46,9 @@ export default function SiteHeader() {
                 </svg>
             </a>
 
-            <ColourSwitcher />
+            <Suspense>
+                <ColourSwitcher />
+            </Suspense>
         </div>
     );
 }

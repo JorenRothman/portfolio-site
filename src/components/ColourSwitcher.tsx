@@ -5,10 +5,10 @@ import { useTheme } from 'next-themes';
 function Sun() {
     return (
         <svg
-            height={24}
-            width={24}
+            className="md:w-6 md:h-6 w-8 h-8"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
+            suppressHydrationWarning
         >
             <g
                 fill="#fff"
@@ -35,10 +35,10 @@ function Sun() {
 function Moon() {
     return (
         <svg
-            height={24}
-            width={24}
+            className="md:w-6 md:h-6 w-8 h-8"
             viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg"
+            suppressHydrationWarning
         >
             <g fill="#000">
                 <path
@@ -67,7 +67,8 @@ export default function ColourSwitcher() {
         <button
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             onClick={toggleTheme}
-            className="w-6 h-6 relative"
+            className="md:w-6 md:h-6 w-8 h-8 relative"
+            suppressHydrationWarning
         >
             {isDark ? <Sun /> : <Moon />}
         </button>
