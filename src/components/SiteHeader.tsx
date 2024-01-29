@@ -1,5 +1,4 @@
 import ColourSwitcher from '@/components/ColourSwitcher';
-import { Suspense } from 'react';
 
 export default function SiteHeader() {
     return (
