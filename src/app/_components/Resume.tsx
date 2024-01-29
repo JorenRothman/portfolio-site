@@ -17,7 +17,11 @@ export default function Resume() {
                             <h4 className="text-lg mb-2 font-semibold">
                                 Frameworks
                             </h4>
-                            <p>React, Next.js, Node.js, Express</p>
+                            <p>React, Next.js, Express, Adonis</p>
+                        </div>
+                        <div>
+                            <h4 className="text-lg mb-2 font-semibold">CMSs</h4>
+                            <p>WordPress, Shopify</p>
                         </div>
                         <div>
                             <h4 className="text-lg mb-2 font-semibold">
@@ -30,14 +34,19 @@ export default function Resume() {
                 <div>
                     <Resume.Item title="Experience">
                         <div>
-                            <h4>Full Stack Developer</h4>
-                            <p>Instance Studio</p>
+                            <h4 className="font-semibold">Instance Studio</h4>
+                            <p>Full Stack Developer</p>
                             <p>2021 - Present</p>
                         </div>
                         <div>
-                            <h4>Full Stack Developer</h4>
-                            <p>Freelance</p>
+                            <h4 className="font-semibold">Freelance</h4>
+                            <p>Full Stack Developer</p>
                             <p>2016 - 2021</p>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold">InStijl Media</h4>
+                            <p>Internship</p>
+                            <p>2014 - 2015</p>
                         </div>
                     </Resume.Item>
                 </div>
