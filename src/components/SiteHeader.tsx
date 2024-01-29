@@ -4,9 +4,12 @@ import { Suspense } from 'react';
 export default function SiteHeader() {
     return (
         <div className="p-4 fixed top-0 right-0 flex gap-6 z-10">
+            <ColourSwitcher />
+
             <a
                 href="https://github.com/jorenrothman"
                 target="_blank"
+                rel="noreferrer"
                 className="inline-block"
                 aria-label="Checkout my GitHub"
             >
@@ -25,6 +28,8 @@ export default function SiteHeader() {
 
             <a
                 href="mailto: hello@jorenrothman.nl"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Send me an email"
             >
                 <svg
@@ -45,10 +50,6 @@ export default function SiteHeader() {
                     </g>
                 </svg>
             </a>
-
-            <Suspense>
-                <ColourSwitcher />
-            </Suspense>
         </div>
     );
 }

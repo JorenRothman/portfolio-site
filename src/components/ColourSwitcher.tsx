@@ -1,6 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 function Sun() {
     return (
@@ -8,7 +9,6 @@ function Sun() {
             className="md:w-6 md:h-6 w-8 h-8"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
-            suppressHydrationWarning
         >
             <g
                 fill="#fff"
@@ -38,7 +38,6 @@ function Moon() {
             className="md:w-6 md:h-6 w-8 h-8"
             viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg"
-            suppressHydrationWarning
         >
             <g fill="#000">
                 <path
@@ -51,6 +50,7 @@ function Moon() {
 }
 
 export default function ColourSwitcher() {
+    const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
 
     const toggleTheme = () => {
@@ -61,14 +61,17 @@ export default function ColourSwitcher() {
         }
     };
 
+    useEffect(() => setMounted(true), []);
+
     const isDark = theme === 'dark';
+
+    if (!mounted) return null;
 
     return (
         <button
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             onClick={toggleTheme}
             className="md:w-6 md:h-6 w-8 h-8 relative"
-            suppressHydrationWarning
         >
             {isDark ? <Sun /> : <Moon />}
         </button>

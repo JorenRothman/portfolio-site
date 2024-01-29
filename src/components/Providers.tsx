@@ -6,7 +6,11 @@ export default function Providers({
     children,
 }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <ThemeProvider defaultTheme="light" attribute="class">
+        <ThemeProvider
+            defaultTheme="light"
+            attribute="class"
+            enableSystem={false}
+        >
             {children}
         </ThemeProvider>
     );

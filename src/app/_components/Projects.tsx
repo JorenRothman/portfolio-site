@@ -48,7 +48,12 @@ export default function Projects() {
                         <p className="mb-2">{project.date}</p>
                         <div className="flex flex-wrap gap-4">
                             {project.link && (
-                                <a href={project.link} className="underline">
+                                <a
+                                    href={project.link}
+                                    className="underline"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
                                     {project.link}
                                 </a>
                             )}
@@ -57,6 +62,8 @@ export default function Projects() {
                                     href={project.github}
                                     className="underline"
                                     aria-label={`GitHub link to ${project.title}`}
+                                    target="_blank"
+                                    rel="noreferrer"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
