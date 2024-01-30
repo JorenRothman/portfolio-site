@@ -1,14 +1,5 @@
 import million from 'million/compiler';
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    output: 'standalone',
-    images: {
-        remotePatterns: [
-            {
-                hostname: 'via.placeholder.com',
-            },
-        ],
-    },
-};
+const nextConfig = {};
 
 export default million.next(nextConfig, { auto: { rsc: true } });
