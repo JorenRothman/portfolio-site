@@ -155,9 +155,12 @@ export default function Animation() {
             },
             {
                 opacity: 1,
-                delay: 1,
+                delay: 0.6,
                 duration: 0.1,
-                stagger: 0.12,
+                stagger: {
+                    each: 0.1,
+                    ease: 'power1.in',
+                },
             }
         );
 
@@ -202,6 +205,24 @@ export default function Animation() {
             }
         );
 
+        timeline.add('swap');
+
+        timeline.to(
+            '.swap-a',
+            {
+                x: 25,
+            },
+            'swap'
+        );
+
+        timeline.to(
+            '.swap-b',
+            {
+                x: -36,
+            },
+            'swap'
+        );
+
         timeline.to(mousePointerClickRef.current, {
             opacity: 0,
             duration: 0.3,
@@ -220,11 +241,6 @@ export default function Animation() {
             delay: '-=1',
         });
 
-        // timeline.to(mousePointerRef.current, {
-        //     opacity: 0,
-        //     duration: 0.2,
-        // });
-
         timeline.play();
     }, [isMobile]);
 
@@ -242,8 +258,8 @@ export default function Animation() {
                 <span className="relative">
                     <span className="letter">R</span>
                     <span className="letter">o</span>
-                    <span className="letter">t</span>
-                    <span className="letter">h</span>
+                    <span className="letter swap-a inline-block">h</span>
+                    <span className="letter swap-b inline-block">t</span>
                     <span className="letter">m</span>
                     <span className="letter">a</span>
                     <span className="letter">n</span>
