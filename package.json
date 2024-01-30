@@ -4,13 +4,14 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
-        "build": "next build ",
-        "start": "next start",
+        "build": "next build && mkdir -p .next/standalone/public/_next && cp -r .next/static .next/standalone/public/_next/",
+        "start": "node .next/standalone/server.js",
         "lint": "next lint"
     },
     "dependencies": {
         "@gsap/react": "^2.1.0",
         "gsap": "^3.12.5",
+        "million": "^2.6.4",
         "next": "14.1.0",
         "next-themes": "^0.2.1",
         "react": "^18",
