@@ -1,13 +1,13 @@
 'use client';
 import { useGSAP } from '@gsap/react';
-import gsap, { SteppedEase } from 'gsap';
+import gsap from 'gsap';
 import { useRef, forwardRef } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
 const SpellingError = forwardRef(function SpellingError(props, ref: any) {
     return (
         <svg
-            className="absolute bottom-0 left-0 pointer-events-none hidden sm:block"
+            className="absolute w-full bottom-0 left-0 pointer-events-none hidden sm:block"
             width="315"
             height="14"
             viewBox="0 0 315 14"
@@ -149,15 +149,15 @@ export default function Animation() {
         });
 
         timeline.fromTo(
-            textRef.current,
+            'span.letter',
             {
-                width: '0',
+                opacity: 0,
             },
             {
-                width: '426px',
-                duration: 0.6,
-                delay: 0.6,
-                ease: SteppedEase.config(16),
+                opacity: 1,
+                delay: 1,
+                duration: 0.1,
+                stagger: 0.12,
             }
         );
 
@@ -170,7 +170,7 @@ export default function Animation() {
             {
                 opacity: 1,
                 duration: 0.2,
-                delay: 0.3,
+                delay: 0.6,
             }
         );
 
@@ -232,11 +232,22 @@ export default function Animation() {
         <div className="relative">
             <h1
                 ref={textRef}
-                className="sm:overflow-hidden sm:pb-2 sm:w-0 sm:whitespace-nowrap text-6xl font-semibold mb-3"
+                className="sm:overflow-hidden sm:pb-2 sm:whitespace-nowrap text-6xl font-semibold mb-3"
             >
-                Joren{' '}
-                <span className="relative ">
-                    Rothman <SpellingError ref={spellingErrorRef} />
+                <span className="letter">J</span>
+                <span className="letter">o</span>
+                <span className="letter">r</span>
+                <span className="letter">e</span>
+                <span className="letter">n</span>{' '}
+                <span className="relative">
+                    <span className="letter">R</span>
+                    <span className="letter">o</span>
+                    <span className="letter">t</span>
+                    <span className="letter">h</span>
+                    <span className="letter">m</span>
+                    <span className="letter">a</span>
+                    <span className="letter">n</span>
+                    <SpellingError ref={spellingErrorRef} />
                 </span>
             </h1>
             <MousePointer ref={mousePointerRef} />
