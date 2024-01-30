@@ -24,7 +24,7 @@ export default async function BlogPage({ params: { slug } }: Props) {
     return (
         <article>
             <div className="c-container py-24">
-                <h1 className="mb-4 text-5xl">{title}</h1>
+                <h1 className="mb-4 text-5xl font-semibold">{title}</h1>
                 <p className="mb-8">Published: {date}</p>
                 <div
                     className="prose lg:prose-xl prose-neutral dark:prose-invert"
