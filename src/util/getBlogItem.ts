@@ -4,6 +4,13 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+export type BlogItem = {
+    title: string;
+    date: string;
+    content: string;
+    slug: string;
+};
+
 const contentDirectory = path.join(process.cwd(), 'content');
 
 export async function getBlogSlugs() {
@@ -14,14 +21,12 @@ export async function getBlogSlugs() {
     return slugs.map((slug) => slug.replace('.md', ''));
 }
 
-export async function getBlogItem<T = {}>(
+export async function getBlogContent<T = {}>(
     slug: string
-): Promise<null | ({ content: string } & T)> {
+): Promise<null | ({ content: string; slug: string } & T)> {
     const fullPath = path.join(contentDirectory, 'blog', `${slug}.md`);
 
-    const exists = fs.existsSync(fullPath);
-
-    if (!exists) {
+    if (!fs.existsSync(fullPath)) {
         return null;
     }
 
@@ -38,6 +43,25 @@ export async function getBlogItem<T = {}>(
 
     return {
         content,
+        slug,
         ...data,
     };
+}
+
+export async function getAllBlogItems() {
+    const slugs = await getBlogSlugs();
+
+    const blogItems = await Promise.all(
+        slugs.map(async (slug) => {
+            const blogItem = await getBlogContent(slug);
+
+            if (!blogItem) {
+                return null;
+            }
+
+            return blogItem;
+        })
+    );
+
+    return blogItems.filter((blogItem) => blogItem !== null) as BlogItem[];
 }

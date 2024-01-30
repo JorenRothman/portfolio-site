@@ -1,4 +1,4 @@
-import { getBlogItem, getBlogSlugs } from '@/util/getBlogItem';
+import { getBlogContent, getBlogSlugs } from '@/util/getBlogItem';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -13,7 +13,7 @@ type BlogContent = {
 };
 
 export default async function BlogPage({ params: { slug } }: Props) {
-    const blogItem = await getBlogItem<BlogContent>(slug);
+    const blogItem = await getBlogContent<BlogContent>(slug);
 
     if (!blogItem) {
         notFound();

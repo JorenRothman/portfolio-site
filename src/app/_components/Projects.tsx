@@ -1,3 +1,5 @@
+import SectionTitle from '@/components/SectionTitle';
+
 type Project = {
     title: string;
     description: string;
@@ -31,11 +33,9 @@ const projects: Project[] = [
 export default function Projects() {
     return (
         <div className="c-container my-16">
-            <h2 className="mb-4 text-4xl font-semibold border-b-2 border-black py-6 sticky top-0 bg-white dark:bg-black dark:text-white dark:border-white">
-                Projects
-            </h2>
+            <SectionTitle title="Projects" />
 
-            <div>
+            <div className="mt-6">
                 {projects.map((project, i) => (
                     <div
                         className="py-4 px-4 group even:bg-black even:text-white dark:even:text-black dark:even:bg-white"
