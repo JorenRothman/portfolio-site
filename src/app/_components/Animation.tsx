@@ -210,7 +210,7 @@ export default function Animation() {
         timeline.to(
             '.swap-a',
             {
-                x: 25,
+                x: 0,
             },
             'swap'
         );
@@ -218,7 +218,7 @@ export default function Animation() {
         timeline.to(
             '.swap-b',
             {
-                x: -36,
+                x: 0,
             },
             'swap'
         );
@@ -255,11 +255,15 @@ export default function Animation() {
                 <span className="letter">r</span>
                 <span className="letter">e</span>
                 <span className="letter">n</span>{' '}
-                <span className="relative">
+                <span className="relative text-nowrap">
                     <span className="letter">R</span>
                     <span className="letter">o</span>
-                    <span className="letter swap-a inline-block">h</span>
-                    <span className="letter swap-b inline-block">t</span>
+                    <span className="letter swap-a inline-block sm:translate-x-[36px]">
+                        t
+                    </span>
+                    <span className="letter swap-b inline-block sm:-translate-x-[24px]">
+                        h
+                    </span>
                     <span className="letter">m</span>
                     <span className="letter">a</span>
                     <span className="letter">n</span>
