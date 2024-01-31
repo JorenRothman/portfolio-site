@@ -159,7 +159,7 @@ export default function Animation() {
                 duration: 0.1,
                 stagger: {
                     each: 0.1,
-                    ease: 'power1.in',
+                    ease: 'Power1.easeInOut',
                 },
             }
         );
@@ -205,24 +205,6 @@ export default function Animation() {
             }
         );
 
-        timeline.add('swap');
-
-        timeline.to(
-            '.swap-a',
-            {
-                x: 0,
-            },
-            'swap'
-        );
-
-        timeline.to(
-            '.swap-b',
-            {
-                x: 0,
-            },
-            'swap'
-        );
-
         timeline.to(mousePointerClickRef.current, {
             opacity: 0,
             duration: 0.3,
@@ -258,12 +240,8 @@ export default function Animation() {
                 <span className="relative text-nowrap">
                     <span className="letter">R</span>
                     <span className="letter">o</span>
-                    <span className="letter swap-a inline-block sm:translate-x-[36px]">
-                        t
-                    </span>
-                    <span className="letter swap-b inline-block sm:-translate-x-[24px]">
-                        h
-                    </span>
+                    <span className="letter">t</span>
+                    <span className="letter">h</span>
                     <span className="letter">m</span>
                     <span className="letter">a</span>
                     <span className="letter">n</span>
