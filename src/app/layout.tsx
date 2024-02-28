@@ -23,7 +23,7 @@ export default function RootLayout({
                 <Providers>{children}</Providers>
                 <Script
                     src="https://stats.jorenrothman.nl/script.js"
-                    data-website-id="01f84d9c-3a08-4b97-9402-0a9c25d4294c"
+                    data-website-id="48c1d772-f539-47d5-8ec5-d750d9bb77d9"
                 ></Script>
             </body>
         </html>
