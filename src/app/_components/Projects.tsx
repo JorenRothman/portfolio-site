@@ -8,6 +8,14 @@ type Project = {
 
 const projects: Project[] = [
     {
+        title: 'URL Shortener',
+        description:
+            'A simple URL shortener built with Next.js, Drizzle, Lucia and Tailwind CSS',
+        date: '2024',
+        link: 'https://short.jorenrothman.nl',
+        github: 'https://github.com/JorenRothman/short-url',
+    },
+    {
         title: 'ACF Builder',
         description: 'PHP wrapper for ACF field creation',
         date: '2023',
