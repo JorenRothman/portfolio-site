@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 import { Karla } from 'next/font/google';
 import './globals.css';
-import Script from 'next/script';
 import Providers from '@/components/Providers';
 
 const primaryFont = Karla({ subsets: ['latin'] });
