@@ -21,10 +21,6 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={primaryFont.className}>
                 <Providers>{children}</Providers>
-                <Script
-                    src="https://stats.jorenrothman.nl/script.js"
-                    data-website-id="48c1d772-f539-47d5-8ec5-d750d9bb77d9"
-                ></Script>
             </body>
         </html>
     );
