@@ -8,6 +8,13 @@ type Project = {
 
 const projects: Project[] = [
     {
+        title: 'Lunchrun Clone',
+        description: 'A Lunchrun clone build with websockets',
+        date: '2024',
+        link: 'https://lunchrun.jorenrothman.nl',
+        github: 'https://github.com/jorenrothman/lunchrun-clone-ws',
+    },
+    {
         title: 'URL Shortener',
         description:
             'A simple URL shortener built with Next.js, Drizzle, Lucia and Tailwind CSS',
