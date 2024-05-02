@@ -4,7 +4,7 @@ export default function Header() {
             <div className="c-container ">
                 <p className="text-lg font-bold mb-2">Hi, I&apos;m</p>
                 <h1 className="sm:overflow-hidden sm:pb-2 sm:whitespace-nowrap text-6xl font-semibold mb-3">
-                    Joren Rothmann
+                    Joren Rothman
                 </h1>
                 <h2 className="text-2xl">A Dutch Full Stack Developer</h2>
             </div>
