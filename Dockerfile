@@ -36,7 +36,7 @@ RUN yarn build
 FROM base AS runner
 WORKDIR /app
 
-RUN app add curl
+RUN apk add curl
 
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
