@@ -1,61 +1,103 @@
+'use client';
+
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { useRef } from 'react';
+
 export default function Resume() {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            gsap.set('.resume-item', { opacity: 1 });
+            return;
+        }
+
+        gsap.from('.resume-item', {
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 80%',
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'expo.out',
+        });
+    }, { scope: containerRef });
+
     return (
-        <div className="c-container my-8">
-            <h2 className="text-4xl font-semibold border-b-2 border-black py-6 sticky top-0 bg-white dark:bg-black dark:text-white dark:border-white">
-                Resume
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-12 mt-6 ">
-                <div>
-                    <Resume.Item title="Skills">
-                        <div>
-                            <h4 className="text-lg mb-2 font-semibold">
-                                Languages
-                            </h4>
-                            <p>JavaScript, TypeScript, PHP</p>
+        <div ref={containerRef} className="c-container py-24">
+            <div className="flex items-center gap-6 mb-16">
+                <h2 className="resume-item font-display text-5xl sm:text-7xl font-bold tracking-tight">
+                    Resume
+                </h2>
+                <div className="h-[1px] flex-1 bg-[var(--accent)] opacity-40"></div>
+            </div>
+
+            <div className="grid md:grid-cols-[1fr_1.2fr] gap-16">
+                <div className="resume-item space-y-12">
+                    <ResumeSection title="Expertise">
+                        <div className="space-y-6">
+                            <SkillGroup
+                                label="Languages"
+                                items={['TypeScript', 'JavaScript', 'PHP']}
+                            />
+                            <SkillGroup
+                                label="Frameworks"
+                                items={['Next.js', 'React', 'Express', 'Adonis']}
+                            />
+                            <SkillGroup
+                                label="Platforms"
+                                items={['WordPress', 'Shopify', 'Node.js', 'Docker']}
+                            />
                         </div>
-                        <div>
-                            <h4 className="text-lg mb-2 font-semibold">
-                                Frameworks
-                            </h4>
-                            <p>React, Next.js, Express, Adonis</p>
-                        </div>
-                        <div>
-                            <h4 className="text-lg mb-2 font-semibold">CMSs</h4>
-                            <p>WordPress, Shopify</p>
-                        </div>
-                        <div>
-                            <h4 className="text-lg mb-2 font-semibold">
-                                Tools
-                            </h4>
-                            <p>Git, Docker</p>
-                        </div>
-                    </Resume.Item>
+                    </ResumeSection>
+
+                    <ResumeSection title="Dabbled With">
+                        <p className="text-lg opacity-60">
+                            {['Python', 'Go', 'Vue', 'Bun'].map((item, i) => (
+                                <span key={item}>
+                                    {item}
+                                    {i < 3 && (
+                                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)] mx-2 align-middle opacity-50" />
+                                    )}
+                                </span>
+                            ))}
+                        </p>
+                    </ResumeSection>
                 </div>
-                <div>
-                    <Resume.Item title="Experience">
-                        <div>
-                            <h4 className="font-semibold">Instance Studio</h4>
-                            <p>Full Stack Developer</p>
-                            <p>2021 - Present</p>
+
+                <div className="resume-item space-y-8">
+                    <ResumeSection title="Experience">
+                        <div className="relative">
+                            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--accent)] opacity-20"></div>
+                            <div className="space-y-10 pl-8">
+                                <ExperienceItem
+                                    company="Instance Studio"
+                                    role="Full Stack Developer"
+                                    period="2021 — Present"
+                                />
+                                <ExperienceItem
+                                    company="Freelance"
+                                    role="Full Stack Developer"
+                                    period="2016 — 2021"
+                                />
+                                <ExperienceItem
+                                    company="InStijl Media"
+                                    role="Internship"
+                                    period="2014 — 2015"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <h4 className="font-semibold">Freelance</h4>
-                            <p>Full Stack Developer</p>
-                            <p>2016 - 2021</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold">InStijl Media</h4>
-                            <p>Internship</p>
-                            <p>2014 - 2015</p>
-                        </div>
-                    </Resume.Item>
+                    </ResumeSection>
                 </div>
             </div>
         </div>
     );
 }
 
-Resume.Item = function ResumeItem({
+function ResumeSection({
     title,
     children,
 }: {
@@ -63,9 +105,48 @@ Resume.Item = function ResumeItem({
     children: React.ReactNode;
 }) {
     return (
-        <div className="mb-8 last:mb-0">
-            <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-            <div className="flex flex-col gap-4">{children}</div>
+        <div>
+            <h3 className="text-sm font-medium tracking-[0.2em] uppercase text-[var(--accent)] mb-8">
+                {title}
+            </h3>
+            {children}
         </div>
     );
-};
+}
+
+function SkillGroup({ label, items }: { label: string; items: string[] }) {
+    return (
+        <div>
+            <h4 className="font-medium text-lg mb-3">{label}</h4>
+            <div className="flex flex-wrap gap-2">
+                {items.map((item, i) => (
+                    <span
+                        key={item}
+                        className="px-3 py-1.5 bg-[var(--surface-light)] dark:bg-[var(--surface-dark)] text-sm rounded-full opacity-70"
+                    >
+                        {item}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function ExperienceItem({
+    company,
+    role,
+    period,
+}: {
+    company: string;
+    role: string;
+    period: string;
+}) {
+    return (
+        <div className="relative">
+            <div className="absolute -left-[36px] top-2 w-3 h-3 rounded-full bg-[var(--accent)]"></div>
+            <h4 className="font-display text-xl font-semibold mb-1">{company}</h4>
+            <p className="text-lg opacity-80 mb-1">{role}</p>
+            <p className="text-sm opacity-50 font-medium">{period}</p>
+        </div>
+    );
+}

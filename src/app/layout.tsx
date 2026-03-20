@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 
-import { Karla } from 'next/font/google';
+import { Syne, Outfit } from 'next/font/google';
 import './globals.css';
 import Providers from '@/components/Providers';
 import Script from 'next/script';
 
-const primaryFont = Karla({ subsets: ['latin'] });
+const displayFont = Syne({ subsets: ['latin'], weight: ['400', '700', '800'] });
+const bodyFont = Outfit({ subsets: ['latin'], weight: ['300', '400', '500'] });
 
 export const metadata: Metadata = {
     title: 'Joren Rothman',
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={primaryFont.className}>
+            <body className={`${bodyFont.className} antialiased`}>
                 <Providers>{children}</Providers>
 
                 <Script

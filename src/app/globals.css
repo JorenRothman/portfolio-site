@@ -2,9 +2,75 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+    --accent: oklch(60% 0.2 250);
+    --accent-glow: oklch(65% 0.2 250);
+    --bg-light: oklch(98% 0.015 240);
+    --bg-dark: oklch(8% 0.015 240);
+    --text-light: oklch(15% 0.03 240);
+    --text-dark: oklch(92% 0.02 240);
+    --surface-light: oklch(96% 0.02 240);
+    --surface-dark: oklch(15% 0.02 240);
+}
+
 @layer components {
     .c-container {
         margin-inline: auto;
         width: min(96%, 64rem);
+        padding-inline: 1.5rem;
     }
+
+    .font-display {
+        font-family: var(--font-display);
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+.dark body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--text-dark);
+}
+
+.dark ::selection {
+    background-color: var(--accent);
+    color: var(--text-light);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.gs-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.gs-reveal-active {
+    opacity: 1;
+    transform: translateY(0);
 }
