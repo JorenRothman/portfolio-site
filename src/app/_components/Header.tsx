@@ -33,25 +33,24 @@ export default function Header() {
                     Full Stack Developer
                 </p>
 
-                <h1 className="header-line font-display text-[clamp(3.5rem,12vw,9rem)] font-extrabold leading-[0.9] tracking-tight mb-6 -ml-1">
+                <h1 className="header-line font-display text-[clamp(2.5rem,14vw,9rem)] font-extrabold leading-[0.9] tracking-tight mb-6 -ml-1">
                     <span className="block">Joren</span>
                     <span className="block text-[var(--accent)]">Rothman</span>
                 </h1>
 
                 <div className="header-line max-w-xl">
-                    <p className="text-xl sm:text-2xl leading-relaxed opacity-80">
-                        Building digital experiences with{' '}
-                        <span className="font-medium text-[var(--accent)]">precision</span>{' '}
-                        and{' '}
-                        <span className="font-medium text-[var(--accent)]">purpose</span>.
-                        Crafting at the intersection of design and code.
+                    <p className="text-xl sm:text-2xl leading-relaxed opacity-80 text-balance">
+                        <span className="font-medium text-[var(--accent)]">Building</span>{' '}
+                        the web, one{' '}
+                        <span className="font-medium text-[var(--accent)]">feature</span>{' '}
+                        at a time.
                     </p>
                 </div>
 
                 <div className="header-line mt-12 flex items-center gap-4">
                     <div className="h-[1px] w-16 bg-[var(--accent)]"></div>
                     <span className="text-sm tracking-widest uppercase opacity-60">
-                        Based in NL
+                        From the Netherlands
                     </span>
                 </div>
             </div>

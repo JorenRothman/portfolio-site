@@ -32,7 +32,7 @@ export default function Resume() {
                 <h2 className="resume-item font-display text-5xl sm:text-7xl font-bold tracking-tight">
                     Resume
                 </h2>
-                <div className="h-[1px] flex-1 bg-[var(--accent)] opacity-40"></div>
+                <div className="h-px flex-1 bg-(--accent) opacity-40"></div>
             </div>
 
             <div className="grid md:grid-cols-[1fr_1.2fr] gap-16">
@@ -54,13 +54,13 @@ export default function Resume() {
                         </div>
                     </ResumeSection>
 
-                    <ResumeSection title="Dabbled With">
+                    <ResumeSection title="Also worked with">
                         <p className="text-lg opacity-60">
                             {['Python', 'Go', 'Vue', 'Bun'].map((item, i) => (
                                 <span key={item}>
                                     {item}
                                     {i < 3 && (
-                                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)] mx-2 align-middle opacity-50" />
+                                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-(--accent) mx-2 align-middle opacity-50" />
                                     )}
                                 </span>
                             ))}
@@ -71,7 +71,7 @@ export default function Resume() {
                 <div className="resume-item space-y-8">
                     <ResumeSection title="Experience">
                         <div className="relative">
-                            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--accent)] opacity-20"></div>
+                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-(--accent) opacity-20"></div>
                             <div className="space-y-10 pl-8">
                                 <ExperienceItem
                                     company="Instance Studio"
@@ -106,7 +106,7 @@ function ResumeSection({
 }) {
     return (
         <div>
-            <h3 className="text-sm font-medium tracking-[0.2em] uppercase text-[var(--accent)] mb-8">
+            <h3 className="text-sm font-medium tracking-[0.2em] uppercase text-(--accent) mb-8">
                 {title}
             </h3>
             {children}
@@ -122,7 +122,7 @@ function SkillGroup({ label, items }: { label: string; items: string[] }) {
                 {items.map((item, i) => (
                     <span
                         key={item}
-                        className="px-3 py-1.5 bg-[var(--surface-light)] dark:bg-[var(--surface-dark)] text-sm rounded-full opacity-70"
+                        className="px-3 py-1.5 bg-(--surface-light) dark:bg-(--surface-dark) text-sm rounded-full opacity-70"
                     >
                         {item}
                     </span>
@@ -143,7 +143,7 @@ function ExperienceItem({
 }) {
     return (
         <div className="relative">
-            <div className="absolute -left-[36px] top-2 w-3 h-3 rounded-full bg-[var(--accent)]"></div>
+            <div className="absolute -left-9.25 top-2 w-3 h-3 rounded-full bg-(--accent)"></div>
             <h4 className="font-display text-xl font-semibold mb-1">{company}</h4>
             <p className="text-lg opacity-80 mb-1">{role}</p>
             <p className="text-sm opacity-50 font-medium">{period}</p>

@@ -10,7 +10,8 @@ export default function SiteHeader() {
                 target="_blank"
                 rel="noreferrer"
                 className="inline-block hover:text-[var(--accent)] transition-colors duration-200"
-                aria-label="Checkout my GitHub"
+                aria-label="View GitHub profile"
+                title="GitHub"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +33,7 @@ export default function SiteHeader() {
                 rel="noreferrer"
                 className="inline-block hover:text-[var(--accent)] transition-colors duration-200"
                 aria-label="Send me an email"
+                title="Email"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

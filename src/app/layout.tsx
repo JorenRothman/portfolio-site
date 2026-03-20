@@ -10,7 +10,7 @@ const bodyFont = Outfit({ subsets: ['latin'], weight: ['300', '400', '500'] });
 
 export const metadata: Metadata = {
     title: 'Joren Rothman',
-    description: 'A personal website',
+    description: 'Full Stack Developer based in the Netherlands, building polished web applications.',
 };
 
 export default function RootLayout({
