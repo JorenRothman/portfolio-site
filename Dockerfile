@@ -13,7 +13,7 @@ WORKDIR /app
 RUN corepack enable && \
   pnpm config set store-dir /root/.pnpm-store
 
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=${COOLIFY_RESOURCE_UUID}-/root/local/share/pnpm/store/v3,target=/root/.pnpm-store \
   pnpm i --frozen-lockfile
 
