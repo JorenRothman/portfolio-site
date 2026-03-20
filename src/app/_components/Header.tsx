@@ -33,7 +33,7 @@ export default function Header() {
                     Full Stack Developer
                 </p>
 
-                <h1 className="header-line font-display text-[clamp(1.5rem,14vw,9rem)] font-extrabold leading-[0.9] tracking-tight mb-6 -ml-1">
+                <h1 className="header-line font-display text-[clamp(2rem,11vw,9rem)] font-extrabold leading-[0.9] tracking-tight mb-6 -ml-1">
                     <span className="block">Joren</span>
                     <span className="block text-[var(--accent)]">Rothman</span>
                 </h1>
