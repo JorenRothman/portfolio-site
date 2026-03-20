@@ -48,8 +48,12 @@ export default function Resume() {
                                 items={['Next.js', 'React', 'Express', 'Adonis']}
                             />
                             <SkillGroup
-                                label="Platforms"
-                                items={['WordPress', 'Shopify', 'Node.js', 'Docker']}
+                                label="CMS"
+                                items={['PayloadCMS', 'WordPress', 'Shopify']}
+                            />
+                            <SkillGroup
+                                label="Tools"
+                                items={['Node.js', 'Docker', 'DDEV']}
                             />
                         </div>
                     </ResumeSection>
