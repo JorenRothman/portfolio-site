@@ -12,7 +12,6 @@
         "@gsap/react": "^2.1.2",
         "@tailwindcss/postcss": "^4.2.2",
         "gsap": "^3.12.7",
-        "million": "^3.1.11",
         "next": "16.2.0",
         "next-themes": "^0.4.4",
         "react": "19.2.4",
