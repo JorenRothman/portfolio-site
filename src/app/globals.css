@@ -1,13 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer components {
     .c-container {
-        @apply mx-auto;
+        margin-inline: auto;
         width: min(96%, 64rem);
     }
-}
-
-@layer utilities {
 }
