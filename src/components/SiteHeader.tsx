@@ -2,7 +2,7 @@ import ColourSwitcher from '@/components/ColourSwitcher';
 
 export default function SiteHeader() {
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 p-4">
+        <header className="fixed top-0 left-0 right-0 z-50 py-4">
             <div className="c-container">
                 <nav className="flex items-center justify-end gap-2">
                         <ColourSwitcher />
