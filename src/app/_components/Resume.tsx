@@ -12,59 +12,50 @@ export default function Resume() {
 
     useGSAP(
         () => {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                gsap.set('.resume-item', { opacity: 1, x: 0, rotation: 0 });
+            const prefersReducedMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            ).matches;
+
+            if (prefersReducedMotion) {
+                gsap.set('.resume-title', { opacity: 1, x: 0, rotation: 0 });
                 gsap.set('.resume-card', { opacity: 1, x: 0, rotation: 0 });
                 gsap.set('.resume-exp-item', { opacity: 1, y: 0 });
                 return;
             }
 
-            gsap.from('.resume-title', {
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 80%',
-                },
-                x: -100,
-                rotation: -3,
-                opacity: 0,
-                duration: 1,
-                ease: 'expo.out',
-            });
+            gsap.set('.resume-title', { opacity: 0, x: -200, rotation: -4 });
+            gsap.set('.resume-card', { opacity: 0, x: -150, skewX: -3 });
+            gsap.set('.resume-exp-item', { opacity: 0, y: 100, rotation: 2 });
 
-            gsap.from('.resume-card', {
-                scrollTrigger: {
-                    trigger: '.resume-card',
-                    start: 'top 85%',
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: 'top 75%',
+                onEnter: () => {
+                    gsap.to('.resume-title', {
+                        opacity: 1,
+                        x: 0,
+                        rotation: 0,
+                        duration: 0.5,
+                        ease: 'power4.out',
+                    });
+                    gsap.to('.resume-card', {
+                        opacity: 1,
+                        x: 0,
+                        skewX: 0,
+                        duration: 0.4,
+                        ease: 'power4.out',
+                        stagger: 0.15,
+                    });
+                    gsap.to('.resume-exp-item', {
+                        opacity: 1,
+                        y: 0,
+                        rotation: 0,
+                        duration: 0.35,
+                        ease: 'power4.out',
+                        stagger: 0.12,
+                    });
                 },
-                x: -80,
-                rotation: -2,
-                opacity: 0,
-                duration: 0.9,
-                ease: 'expo.out',
-                stagger: 0.1,
-            });
-
-            gsap.from('.resume-exp-item', {
-                scrollTrigger: {
-                    trigger: '.resume-exp-item',
-                    start: 'top 90%',
-                },
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'expo.out',
-                stagger: 0.15,
-            });
-
-            gsap.to('.resume-card', {
-                y: -10,
-                rotation: 1,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 30%',
-                    end: 'bottom top',
-                    scrub: 1,
-                },
+                once: true,
             });
         },
         { scope: containerRef }
@@ -84,7 +75,7 @@ export default function Resume() {
 
             <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr] lg:gap-24">
                 <div className="space-y-12">
-                    <div className="resume-card brutal-border-accent brutal-shadow p-6 will-change-transform">
+                    <div className="resume-card brutal-border-accent brutal-shadow p-6 transition-transform duration-100 ease-out will-change-transform hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[9px_9px_0_var(--accent)]">
                         <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)]">
                             Expertise
                         </h3>
@@ -121,7 +112,7 @@ export default function Resume() {
                             {['Python', 'Go', 'Vue', 'Bun'].map((item) => (
                                 <span
                                     key={item}
-                                    className="brutal-border px-3 py-2 text-sm font-bold"
+                                    className="border-[3px] border-black px-3 py-2 text-sm font-bold transition-all duration-100 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-[var(--accent)] hover:text-black hover:shadow-[3px_3px_0_var(--accent)] dark:border-white dark:hover:-translate-x-0.5 dark:hover:-translate-y-0.5 dark:hover:bg-[var(--accent)] dark:hover:text-black dark:hover:shadow-[3px_3px_0_var(--accent)]"
                                 >
                                     {item}
                                 </span>
@@ -171,7 +162,7 @@ function SkillGroup({ label, items }: { label: string; items: string[] }) {
                 {items.map((item) => (
                     <span
                         key={item}
-                        className="bg-[var(--surface-light)] px-3 py-1.5 text-sm font-medium dark:bg-[var(--surface-dark)]"
+                        className="skill-tag border-[3px] border-black bg-[var(--surface-light)] px-3 py-1.5 text-sm font-medium transition-all duration-100 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-[var(--accent)] hover:text-black hover:shadow-[2px_2px_0_var(--accent)] dark:border-white dark:bg-[var(--surface-dark)] dark:text-white dark:hover:-translate-x-0.5 dark:hover:-translate-y-0.5 dark:hover:bg-[var(--accent)] dark:hover:text-black dark:hover:shadow-[2px_2px_0_var(--accent)]"
                     >
                         {item}
                     </span>
@@ -191,9 +182,9 @@ function ExperienceItem({
     period: string;
 }) {
     return (
-        <div className="resume-exp-item group cursor-default border-2 border-current p-6 will-change-transform">
+        <div className="resume-exp-item group cursor-default border-2 border-current p-6 transition-all duration-150 will-change-transform hover:-translate-x-1 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-[6px_6px_0_var(--accent)]">
             <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-                <h4 className="font-display text-2xl font-black tracking-tight transition-colors duration-200 group-hover:text-[var(--accent)] md:text-3xl">
+                <h4 className="font-display text-2xl font-black tracking-tight transition-colors duration-100 group-hover:text-[var(--accent)] md:text-3xl">
                     {company}
                 </h4>
                 <span className="text-xs font-black tracking-widest opacity-50">
