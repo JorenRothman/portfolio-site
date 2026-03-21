@@ -11,7 +11,7 @@ export default function SiteHeader() {
                         href="https://github.com/jorenrothman"
                         target="_blank"
                         rel="noreferrer"
-                        className="brutal-border flex min-h-[44px] min-w-[44px] items-center justify-center p-3 transition-all duration-200 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)]"
+                        className="brutal-border flex min-h-[44px] min-w-[44px] items-center justify-center p-3 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:shadow-[4px_4px_0_var(--accent),inset_4px_4px_0_white]"
                         aria-label="View GitHub profile"
                     >
                         <svg
@@ -33,7 +33,7 @@ export default function SiteHeader() {
                         href="mailto:hello@jorenrothman.nl"
                         target="_blank"
                         rel="noreferrer"
-                        className="brutal-border flex min-h-[44px] min-w-[44px] items-center justify-center p-3 transition-all duration-200 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)]"
+                        className="brutal-border flex min-h-[44px] min-w-[44px] items-center justify-center p-3 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:shadow-[4px_4px_0_var(--accent),inset_4px_4px_0_white]"
                         aria-label="Send me an email"
                     >
                         <svg
