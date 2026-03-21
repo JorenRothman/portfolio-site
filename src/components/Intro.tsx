@@ -32,16 +32,20 @@ export default function Intro() {
                 )
                 .from('.intro-bar', {
                     scaleY: 0,
-                    transformOrigin: 'top',
-                    duration: 0.3,
+                    transformOrigin: 'bottom',
+                    duration: 0.4,
                     ease: 'power4.out',
-                    stagger: 0.05,
+                    stagger: 0.02,
+                    delay: 0.5,
                 })
-                .to('.intro-bg', {
+                .to(['.intro-first', '.intro-last'], {
+                    opacity: 0,
+                    duration: 0.15,
+                })
+                .to('.intro-bar', {
                     y: '-100%',
-                    duration: 0.35,
+                    duration: 0.4,
                     ease: 'power4.in',
-                    delay: 0.2,
                 })
                 .set(containerRef.current, { display: 'none' });
         },
@@ -51,26 +55,22 @@ export default function Intro() {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden p-8"
         >
-            <div className="intro-bg absolute inset-0 flex items-center justify-center bg-[var(--bg-light)] dark:bg-[var(--bg-dark)]">
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
-            </div>
-            <h1 className="font-display relative z-10 font-black leading-none tracking-tighter">
-                <span className="intro-first block text-[clamp(2rem,15vw,14rem)] text-[var(--text-light)] dark:text-[var(--text-dark)]">
+            <div className="intro-bg absolute inset-0 bg-[var(--bg-light)] dark:bg-[var(--bg-dark)]"></div>
+            <h1 className="intro-first font-display absolute right-8 top-[25%] z-10 font-black leading-none tracking-tighter">
+                <span className="text-right text-[clamp(3rem,20vw,16rem)] text-[var(--text-light)] dark:text-[var(--text-dark)]">
                     JOREN
                 </span>
-                <span className="intro-last block text-[clamp(2rem,15vw,14rem)] text-[var(--accent)]">
+            </h1>
+            <h1 className="intro-last font-display absolute left-8 bottom-[25%] z-10 font-black leading-none tracking-tighter">
+                <span className="text-[clamp(3rem,20vw,16rem)] text-[var(--accent)]">
                     ROTHMAN
                 </span>
             </h1>
+            <div className="absolute inset-0 z-20 flex flex-col">
+                <div className="intro-bar flex-1 bg-[var(--accent)]"></div>
+            </div>
         </div>
     );
 }
