@@ -85,13 +85,28 @@ export default function Projects() {
         gsap.from('.project-item', {
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: 'top 80%',
+                start: 'top 85%',
             },
-            y: 50,
+            x: -150,
+            rotation: -3,
             opacity: 0,
-            duration: 0.7,
+            scale: 0.95,
+            duration: 0.8,
             ease: 'expo.out',
-            stagger: 0.1,
+            stagger: {
+                amount: 0.6,
+                from: 'start',
+            },
+        });
+
+        gsap.to('.project-item', {
+            y: -5,
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 20%',
+                end: 'bottom top',
+                scrub: 1,
+            },
         });
     }, { scope: containerRef });
 
@@ -124,7 +139,7 @@ export default function Projects() {
 						>
 							<div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
 								<div className="flex items-start gap-6 flex-1">
-									<span className="font-display text-4xl md:text-5xl font-black text-[var(--accent)] opacity-30 group-hover:opacity-100 transition-opacity duration-300 leading-none">
+									<span className="project-num font-display text-4xl md:text-5xl font-black text-[var(--accent)] opacity-30 group-hover:opacity-100 transition-opacity duration-300 leading-none">
 										{String(index + 1).padStart(2, '0')}
 									</span>
 									<div>
