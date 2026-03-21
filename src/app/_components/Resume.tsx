@@ -55,16 +55,6 @@ export default function Resume() {
             stagger: 0.15,
         });
 
-        gsap.to('.resume-exp-line', {
-            scaleY: 1,
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top 60%',
-                end: 'bottom 40%',
-                scrub: 1,
-            },
-        });
-
         gsap.to('.resume-card', {
             y: -10,
             rotation: 1,

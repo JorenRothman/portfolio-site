@@ -91,7 +91,7 @@ export default function Header() {
             duration: 1,
             ease: 'none',
             scrollTrigger: {
-                trigger: 'body',
+                trigger:containerRef.current,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: 2,
@@ -104,7 +104,7 @@ export default function Header() {
             duration: 1,
             ease: 'none',
             scrollTrigger: {
-                trigger: 'body',
+                trigger:containerRef.current,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: 3,
@@ -117,7 +117,7 @@ export default function Header() {
             duration: 1,
             ease: 'none',
             scrollTrigger: {
-                trigger: 'body',
+                trigger:containerRef.current,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: 2.5,
