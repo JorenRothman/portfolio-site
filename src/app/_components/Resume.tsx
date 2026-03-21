@@ -105,15 +105,15 @@ export default function Resume() {
                         </div>
                     </div>
 
-                    <div className="resume-card">
+                    <div className="resume-card brutal-border p-4">
                         <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-[var(--accent)] mb-4">
                             Also worked with
                         </h3>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2">
                             {['Python', 'Go', 'Vue', 'Bun'].map((item) => (
                                 <span
                                     key={item}
-                                    className="brutal-border px-3 py-1.5 text-sm font-medium"
+                                    className="brutal-border px-3 py-2 text-sm font-bold"
                                 >
                                     {item}
                                 </span>

@@ -52,24 +52,32 @@ body {
 }
 
 .brutal-border {
-    border: 2px solid currentColor;
+    border: 3px solid currentColor;
 }
 
 .brutal-border-accent {
-    border: 2px solid var(--accent);
+    border: 3px solid var(--accent);
 }
 
 .brutal-shadow {
-    box-shadow: 6px 6px 0 var(--accent);
+    box-shadow: 5px 5px 0 var(--accent);
 }
 
 .brutal-shadow-hover {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .brutal-shadow-hover:hover {
-    transform: translate(-3px, -3px);
+    transform: translate(-4px, -4px);
     box-shadow: 9px 9px 0 var(--accent);
+}
+
+.dark .brutal-shadow {
+    box-shadow: 5px 5px 0 var(--text-dark);
+}
+
+.dark .brutal-shadow-hover:hover {
+    box-shadow: 9px 9px 0 var(--text-dark);
 }
 
 

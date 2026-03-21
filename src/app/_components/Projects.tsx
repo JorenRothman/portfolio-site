@@ -110,7 +110,7 @@ export default function Projects() {
 				</span>
 			</div>
 
-			<div className="space-y-0">
+			<div className="space-y-4">
 				{projects.map((project, index) => (
 					<article
 						key={project.title}
@@ -120,7 +120,7 @@ export default function Projects() {
 							href={project.link || project.github || '#'}
 							target="_blank"
 							rel="noreferrer"
-							className="block py-8 brutal-border-b border-t-2 border-current transition-all duration-200 hover:bg-[var(--surface-light)] dark:hover:bg-[var(--surface-dark)] cursor-pointer"
+							className="block py-6 px-6 brutal-border border-3 brutal-shadow-hover transition-all duration-200 hover:bg-[var(--surface-light)] dark:hover:bg-[var(--surface-dark)] cursor-pointer"
 						>
 							<div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
 								<div className="flex items-start gap-6 flex-1">

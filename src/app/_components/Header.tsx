@@ -131,17 +131,17 @@ export default function Header() {
             className="min-h-screen relative overflow-hidden"
         >
             <div className="geo-bg absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="geo-square absolute top-[10%] right-[5%] w-20 h-20 border-2 border-[var(--accent)] opacity-15 rotate-12 will-change-transform"></div>
-                <div className="geo-square absolute top-[30%] left-[8%] w-32 h-32 border-2 border-[var(--accent)] opacity-10 -rotate-6 will-change-transform"></div>
-                <div className="geo-triangle absolute top-[60%] right-[15%] w-0 h-0 border-l-[40px] border-r-[40px] border-b-[70px] border-l-transparent border-r-transparent border-b-[var(--accent)] opacity-10 will-change-transform" style={{borderLeftWidth: '40px', borderRightWidth: '40px', borderBottomWidth: '70px'}}></div>
-                <div className="geo-circle absolute bottom-[20%] left-[60%] w-40 h-40 rounded-full border-2 border-[var(--accent)] opacity-10 will-change-transform"></div>
-                <div className="geo-square absolute top-[80%] right-[8%] w-16 h-16 bg-[var(--accent)] opacity-5 rotate-45 will-change-transform"></div>
-                <div className="geo-triangle absolute top-[45%] left-[2%] w-0 h-0 border-l-[25px] border-r-[25px] border-b-[43px] border-l-transparent border-r-transparent border-b-[var(--accent)] opacity-15 will-change-transform" style={{borderLeftWidth: '25px', borderRightWidth: '25px', borderBottomWidth: '43px'}}></div>
+                <div className="geo-square absolute top-[10%] right-[5%] w-20 h-20 border-3 border-[var(--accent)] opacity-20 rotate-12 will-change-transform"></div>
+                <div className="geo-square absolute top-[30%] left-[8%] w-32 h-32 border-3 border-[var(--accent)] opacity-15 -rotate-6 will-change-transform"></div>
+                <div className="geo-triangle absolute top-[60%] right-[15%] w-0 h-0 border-l-[40px] border-r-[40px] border-b-[70px] border-l-transparent border-r-transparent border-b-[var(--accent)] opacity-15 will-change-transform" style={{borderLeftWidth: '40px', borderRightWidth: '40px', borderBottomWidth: '70px'}}></div>
+                <div className="geo-circle absolute bottom-[20%] left-[60%] w-40 h-40 rounded-full border-3 border-[var(--accent)] opacity-15 will-change-transform"></div>
+                <div className="geo-square absolute top-[80%] right-[8%] w-16 h-16 bg-[var(--accent)] opacity-10 rotate-45 will-change-transform"></div>
+                <div className="geo-triangle absolute top-[45%] left-[2%] w-0 h-0 border-l-[25px] border-r-[25px] border-b-[43px] border-l-transparent border-r-transparent border-b-[var(--accent)] opacity-20 will-change-transform" style={{borderLeftWidth: '25px', borderRightWidth: '25px', borderBottomWidth: '43px'}}></div>
             </div>
 
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-10">
-                <div className="header-deco header-deco-line absolute bottom-32 left-[3%] w-24 h-1 bg-[var(--accent)]"></div>
-                <div className="header-deco absolute bottom-40 left-[3%] w-1 h-24 bg-[var(--accent)]"></div>
+                <div className="header-deco header-deco-line absolute bottom-32 left-[3%] w-24 h-[3px] bg-[var(--accent)]"></div>
+                <div className="header-deco absolute bottom-40 left-[3%] w-[3px] h-24 bg-[var(--accent)]"></div>
             </div>
 
             <div className="c-container py-32 md:py-40 flex flex-col min-h-screen">
@@ -175,7 +175,7 @@ export default function Header() {
                 </div>
 
                 <div className="header-location flex items-center gap-4 pt-12 md:pt-16 will-change-transform">
-                    <div className="w-12 h-12 brutal-border-accent flex items-center justify-center">
+                    <div className="w-14 h-14 brutal-border-accent brutal-shadow flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
                             <circle cx="12" cy="10" r="3"/>
