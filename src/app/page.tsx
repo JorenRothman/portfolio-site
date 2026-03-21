@@ -5,7 +5,7 @@ import SiteHeader from '@/components/SiteHeader';
 
 export default function Home() {
     return (
-        <div className="text-black dark:text-white dark:bg-black">
+        <div className="text-black dark:bg-black dark:text-white">
             <SiteHeader />
             <main>
                 <Header />

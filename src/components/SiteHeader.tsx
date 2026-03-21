@@ -2,7 +2,7 @@ import ColourSwitcher from '@/components/ColourSwitcher';
 
 export default function SiteHeader() {
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 py-4">
+        <header className="fixed left-0 right-0 top-0 z-50 py-4">
             <div className="c-container">
                 <nav className="flex items-center justify-end gap-2">
                     <ColourSwitcher />
@@ -11,12 +11,12 @@ export default function SiteHeader() {
                         href="https://github.com/jorenrothman"
                         target="_blank"
                         rel="noreferrer"
-                        className="brutal-border p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:border-[var(--accent)] transition-all duration-200"
+                        className="brutal-border flex min-h-[44px] min-w-[44px] items-center justify-center p-3 transition-all duration-200 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)]"
                         aria-label="View GitHub profile"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -33,12 +33,12 @@ export default function SiteHeader() {
                         href="mailto:hello@jorenrothman.nl"
                         target="_blank"
                         rel="noreferrer"
-                        className="brutal-border p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:border-[var(--accent)] transition-all duration-200"
+                        className="brutal-border flex min-h-[44px] min-w-[44px] items-center justify-center p-3 transition-all duration-200 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg-dark)]"
                         aria-label="Send me an email"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"

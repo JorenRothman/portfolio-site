@@ -64,7 +64,9 @@ body {
 }
 
 .brutal-shadow-hover {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .brutal-shadow-hover:hover {
@@ -79,5 +81,3 @@ body {
 .dark .brutal-shadow-hover:hover {
     box-shadow: 9px 9px 0 var(--accent);
 }
-
-
