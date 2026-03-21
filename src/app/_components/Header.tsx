@@ -85,6 +85,44 @@ export default function Header() {
                 scrub: 1,
             },
         });
+
+        gsap.to('.geo-square', {
+            rotation: 180,
+            duration: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 2,
+            },
+        });
+
+        gsap.to('.geo-triangle', {
+            rotation: -90,
+            y: -50,
+            duration: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 3,
+            },
+        });
+
+        gsap.to('.geo-circle', {
+            scale: 1.5,
+            rotation: 90,
+            duration: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 2.5,
+            },
+        });
     }, { scope: containerRef });
 
     return (
@@ -92,11 +130,18 @@ export default function Header() {
             ref={containerRef}
             className="min-h-screen relative overflow-hidden"
         >
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+            <div className="geo-bg absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="geo-square absolute top-[10%] right-[5%] w-20 h-20 border-2 border-[var(--accent)] opacity-15 rotate-12 will-change-transform"></div>
+                <div className="geo-square absolute top-[30%] left-[8%] w-32 h-32 border-2 border-[var(--accent)] opacity-10 -rotate-6 will-change-transform"></div>
+                <div className="geo-triangle absolute top-[60%] right-[15%] w-0 h-0 border-l-[40px] border-r-[40px] border-b-[70px] border-l-transparent border-r-transparent border-b-[var(--accent)] opacity-10 will-change-transform" style={{borderLeftWidth: '40px', borderRightWidth: '40px', borderBottomWidth: '70px'}}></div>
+                <div className="geo-circle absolute bottom-[20%] left-[60%] w-40 h-40 rounded-full border-2 border-[var(--accent)] opacity-10 will-change-transform"></div>
+                <div className="geo-square absolute top-[80%] right-[8%] w-16 h-16 bg-[var(--accent)] opacity-5 rotate-45 will-change-transform"></div>
+                <div className="geo-triangle absolute top-[45%] left-[2%] w-0 h-0 border-l-[25px] border-r-[25px] border-b-[43px] border-l-transparent border-r-transparent border-b-[var(--accent)] opacity-15 will-change-transform" style={{borderLeftWidth: '25px', borderRightWidth: '25px', borderBottomWidth: '43px'}}></div>
+            </div>
+
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-10">
                 <div className="header-deco header-deco-line absolute bottom-32 left-[3%] w-24 h-1 bg-[var(--accent)]"></div>
                 <div className="header-deco absolute bottom-40 left-[3%] w-1 h-24 bg-[var(--accent)]"></div>
-                <div className="absolute top-1/4 right-0 w-2 h-64 bg-[var(--accent)] opacity-10"></div>
-                <div className="absolute top-1/3 right-4 w-32 h-2 bg-[var(--accent)] opacity-5"></div>
             </div>
 
             <div className="c-container py-32 md:py-40 flex flex-col min-h-screen">
