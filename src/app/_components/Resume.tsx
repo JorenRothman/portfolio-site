@@ -16,9 +16,9 @@ export default function Resume() {
         gsap.from('.resume-item', {
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: 'top 80%',
+                start: 'top 75%',
             },
-            y: 50,
+            y: 60,
             opacity: 0,
             duration: 0.8,
             stagger: 0.1,
@@ -27,18 +27,24 @@ export default function Resume() {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="c-container py-24">
-            <div className="flex items-center gap-6 mb-16">
-                <h2 className="resume-item font-display text-5xl sm:text-7xl font-bold tracking-tight">
-                    Resume
-                </h2>
-                <div className="h-px flex-1 bg-(--accent) opacity-40"></div>
+        <div ref={containerRef} className="c-container py-32">
+            <div className="flex items-end gap-6 mb-16">
+                <div className="relative">
+                    <h2 className="resume-item font-display text-4xl xs:text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-none">
+                        Resume
+                    </h2>
+                    <div className="absolute -bottom-4 right-0 w-full h-2 bg-[var(--accent)] -rotate-1"></div>
+                </div>
+                <div className="flex-1 h-px bg-current opacity-20 mb-4 hidden sm:block"></div>
             </div>
 
-            <div className="grid md:grid-cols-[1fr_1.2fr] gap-16">
+            <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24">
                 <div className="resume-item space-y-12">
-                    <ResumeSection title="Expertise">
-                        <div className="space-y-6">
+                    <div className="brutal-border-accent p-6 brutal-shadow">
+                        <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-[var(--accent)] mb-6">
+                            Expertise
+                        </h3>
+                        <div className="space-y-8">
                             <SkillGroup
                                 label="Languages"
                                 items={['TypeScript', 'JavaScript', 'PHP']}
@@ -56,45 +62,50 @@ export default function Resume() {
                                 items={['Node.js', 'Docker', 'DDEV']}
                             />
                         </div>
-                    </ResumeSection>
+                    </div>
 
-                    <ResumeSection title="Also worked with">
-                        <p className="text-lg opacity-60">
-                            {['Python', 'Go', 'Vue', 'Bun'].map((item, i) => (
-                                <span key={item}>
+                    <div>
+                        <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-[var(--accent)] mb-4">
+                            Also worked with
+                        </h3>
+                        <div className="flex flex-wrap gap-3">
+                            {['Python', 'Go', 'Vue', 'Bun'].map((item) => (
+                                <span
+                                    key={item}
+                                    className="brutal-border px-3 py-1.5 text-sm font-medium"
+                                >
                                     {item}
-                                    {i < 3 && (
-                                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-(--accent) mx-2 align-middle opacity-50" />
-                                    )}
                                 </span>
                             ))}
-                        </p>
-                    </ResumeSection>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="resume-item space-y-8">
-                    <ResumeSection title="Experience">
-                        <div className="relative">
-                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-(--accent) opacity-20"></div>
-                            <div className="space-y-10 pl-8">
-                                <ExperienceItem
-                                    company="Instance Studio"
-                                    role="Full Stack Developer"
-                                    period="2021 — Present"
-                                />
-                                <ExperienceItem
-                                    company="Freelance"
-                                    role="Full Stack Developer"
-                                    period="2016 — 2021"
-                                />
-                                <ExperienceItem
-                                    company="InStijl Media"
-                                    role="Internship"
-                                    period="2014 — 2015"
-                                />
-                            </div>
-                        </div>
-                    </ResumeSection>
+                <div className="resume-item">
+                    <div className="flex items-center gap-4 mb-8">
+                        <h3 className="text-xs font-black tracking-[0.3em] uppercase text-[var(--accent)]">
+                            Experience
+                        </h3>
+                        <div className="flex-1 h-2 bg-[var(--accent)]"></div>
+                    </div>
+
+                    <div className="space-y-4">
+                        <ExperienceItem
+                            company="Instance Studio"
+                            role="Full Stack Developer"
+                            period="2021 — Present"
+                        />
+                        <ExperienceItem
+                            company="Freelance"
+                            role="Full Stack Developer"
+                            period="2016 — 2021"
+                        />
+                        <ExperienceItem
+                            company="InStijl Media"
+                            role="Internship"
+                            period="2014 — 2015"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,7 +121,7 @@ function ResumeSection({
 }) {
     return (
         <div>
-            <h3 className="text-sm font-medium tracking-[0.2em] uppercase text-(--accent) mb-8">
+            <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-[var(--accent)] mb-6">
                 {title}
             </h3>
             {children}
@@ -121,12 +132,12 @@ function ResumeSection({
 function SkillGroup({ label, items }: { label: string; items: string[] }) {
     return (
         <div>
-            <h4 className="font-medium text-lg mb-3">{label}</h4>
+            <h4 className="font-bold text-base mb-3 uppercase tracking-wider">{label}</h4>
             <div className="flex flex-wrap gap-2">
-                {items.map((item, i) => (
+                {items.map((item) => (
                     <span
                         key={item}
-                        className="px-3 py-1.5 bg-(--surface-light) dark:bg-(--surface-dark) text-sm rounded-full opacity-70"
+                        className="px-3 py-1.5 bg-[var(--surface-light)] dark:bg-[var(--surface-dark)] text-sm font-medium"
                     >
                         {item}
                     </span>
@@ -146,11 +157,12 @@ function ExperienceItem({
     period: string;
 }) {
     return (
-        <div className="relative">
-            <div className="absolute -left-9.25 top-2 w-3 h-3 rounded-full bg-(--accent)"></div>
-            <h4 className="font-display text-xl font-semibold mb-1">{company}</h4>
-            <p className="text-lg opacity-80 mb-1">{role}</p>
-            <p className="text-sm opacity-50 font-medium">{period}</p>
+        <div className="border-2 border-current p-6 group cursor-default">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                <h4 className="font-display text-2xl md:text-3xl font-black tracking-tight group-hover:text-[var(--accent)] transition-colors duration-200">{company}</h4>
+                <span className="font-black tracking-widest text-xs opacity-50">{period}</span>
+            </div>
+            <p className="text-lg md:text-xl font-medium opacity-70">{role}</p>
         </div>
     );
 }

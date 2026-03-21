@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 function Sun() {
 	return (
 		<svg
-			className="md:w-6 md:h-6 w-8 h-8"
+			className="w-5 h-5"
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="currentColor"
-			strokeWidth="2"
+			strokeWidth="2.5"
 			strokeLinecap="round"
 			strokeLinejoin="round"
+			aria-hidden="true"
 		>
 			<circle cx="12" cy="12" r="4" />
 			<path d="M12 2v2" />
@@ -30,13 +31,14 @@ function Sun() {
 function Moon() {
 	return (
 		<svg
-			className="md:w-6 md:h-6 w-8 h-8"
+			className="w-5 h-5"
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="currentColor"
-			strokeWidth="2"
+			strokeWidth="2.5"
 			strokeLinecap="round"
 			strokeLinejoin="round"
+			aria-hidden="true"
 		>
 			<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
 		</svg>
@@ -66,7 +68,7 @@ export default function ColourSwitcher() {
 			type="button"
 			aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
 			onClick={toggleTheme}
-			className="md:w-6 md:h-6 w-8 h-8 relative"
+			className="brutal-border p-2 hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:border-[var(--accent)] transition-all duration-200"
 		>
 			{isDark ? <Sun /> : <Moon />}
 		</button>
