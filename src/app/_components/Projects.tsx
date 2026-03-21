@@ -2,7 +2,10 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Project = {
 	title: string;
@@ -62,20 +65,33 @@ export default function Projects() {
 
     useGSAP(() => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            gsap.set('.project-item', { opacity: 1 });
+            gsap.set('.project-title', { opacity: 1, x: 0 });
+            gsap.set('.project-item', { opacity: 1, y: 0, x: 0, rotation: 0 });
             return;
         }
+
+        gsap.from('.project-title', {
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 80%',
+            },
+            x: -100,
+            rotation: -2,
+            opacity: 0,
+            duration: 1,
+            ease: 'expo.out',
+        });
 
         gsap.from('.project-item', {
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: 'top 75%',
+                start: 'top 80%',
             },
-            y: 80,
+            y: 50,
             opacity: 0,
-            duration: 0.9,
-            stagger: 0.15,
+            duration: 0.7,
             ease: 'expo.out',
+            stagger: 0.1,
         });
     }, { scope: containerRef });
 
@@ -83,7 +99,7 @@ export default function Projects() {
 		<div ref={containerRef} className="c-container py-32">
 			<div className="flex items-end gap-6 mb-16">
 				<div className="relative">
-					<h2 className="font-display text-4xl xs:text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-none">
+					<h2 className="project-title font-display text-4xl xs:text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-none will-change-transform">
 						Projects
 					</h2>
 					<div className="absolute -bottom-4 right-0 w-full h-2 bg-[var(--accent)] -rotate-1"></div>
@@ -98,7 +114,7 @@ export default function Projects() {
 				{projects.map((project, index) => (
 					<article
 						key={project.title}
-						className="project-item group relative"
+						className="project-item group relative will-change-transform"
 					>
 						<a
 							href={project.link || project.github || '#'}
@@ -142,6 +158,7 @@ export default function Projects() {
 													strokeWidth="2"
 													strokeLinecap="round"
 													strokeLinejoin="round"
+													aria-hidden="true"
 												>
 													<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
 												</svg>

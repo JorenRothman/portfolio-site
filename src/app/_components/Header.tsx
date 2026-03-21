@@ -2,7 +2,10 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -48,6 +51,40 @@ export default function Header() {
             duration: 0.6,
             stagger: 0.1,
         }, '-=0.8');
+
+        ScrollTrigger.create({
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1,
+            onUpdate: (self) => {
+                const progress = self.progress;
+                gsap.set('.header-name', {
+                    y: progress * 100,
+                    rotation: progress * 2,
+                    scale: 1 - progress * 0.1,
+                });
+                gsap.set('.header-tag', {
+                    y: progress * 50,
+                    opacity: 1 - progress * 1.5,
+                });
+                gsap.set('.header-location', {
+                    y: progress * 80,
+                    opacity: 1 - progress * 2,
+                });
+            },
+        });
+
+        gsap.to('.header-deco-line', {
+            rotation: 15,
+            duration: 0.3,
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top top',
+                end: '50% top',
+                scrub: 1,
+            },
+        });
     }, { scope: containerRef });
 
     return (
@@ -55,9 +92,11 @@ export default function Header() {
             ref={containerRef}
             className="min-h-screen relative overflow-hidden"
         >
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <div className="header-deco absolute bottom-32 left-[3%] w-24 h-1 bg-[var(--accent)]"></div>
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                <div className="header-deco header-deco-line absolute bottom-32 left-[3%] w-24 h-1 bg-[var(--accent)]"></div>
                 <div className="header-deco absolute bottom-40 left-[3%] w-1 h-24 bg-[var(--accent)]"></div>
+                <div className="absolute top-1/4 right-0 w-2 h-64 bg-[var(--accent)] opacity-10"></div>
+                <div className="absolute top-1/3 right-4 w-32 h-2 bg-[var(--accent)] opacity-5"></div>
             </div>
 
             <div className="c-container py-32 md:py-40 flex flex-col min-h-screen">
@@ -68,7 +107,7 @@ export default function Header() {
                         </p>
 
                         <div className="relative">
-                            <h1 className="header-name font-display font-black leading-[0.85] tracking-tighter">
+                            <h1 className="header-name font-display font-black leading-[0.85] tracking-tighter will-change-transform">
                                 <span className="block xl:text-[clamp(3.5rem,15vw,11rem)] text-[clamp(2rem,11vw,11rem)]">Joren</span>
                                 <span className="block xl:text-[clamp(3.5rem,15vw,11rem)] text-[clamp(2rem,11vw,11rem)] text-[var(--accent)] relative">
                                     Rothman
@@ -77,7 +116,7 @@ export default function Header() {
                             </h1>
                         </div>
 
-                        <div className="header-tag-line w-24 h-[3px] bg-[var(--accent)] mt-8 md:mt-12 mb-8"></div>
+                        <div className="header-tag-line w-24 h-[3px] bg-[var(--accent)] mt-8 md:mt-12 mb-8 origin-left"></div>
 
                         <div className="header-desc max-w-xl">
                             <p className="text-xl sm:text-2xl md:text-3xl leading-[1.3] font-medium">
@@ -90,9 +129,9 @@ export default function Header() {
                     </div>
                 </div>
 
-                <div className="header-location flex items-center gap-4 pt-12 md:pt-16">
+                <div className="header-location flex items-center gap-4 pt-12 md:pt-16 will-change-transform">
                     <div className="w-12 h-12 brutal-border-accent flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
                             <circle cx="12" cy="10" r="3"/>
                         </svg>
