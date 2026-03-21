@@ -2,7 +2,7 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 export default function Intro() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -16,31 +16,32 @@ export default function Intro() {
 
             const tl = gsap.timeline();
 
-            tl.from('.intro-name', {
-                y: 150,
-                skewX: 10,
-                duration: 0.6,
+            tl.from('.intro-first', {
+                x: '-100%',
+                duration: 0.4,
                 ease: 'power4.out',
             })
-                .to('.intro-name', {
-                    skewX: 0,
-                    duration: 0.2,
-                    ease: 'power4.in',
-                })
                 .from(
-                    '.intro-line',
+                    '.intro-last',
                     {
-                        scaleX: 0,
-                        duration: 0.3,
+                        x: '100%',
+                        duration: 0.4,
                         ease: 'power4.out',
                     },
-                    '-=0.3'
+                    '<'
                 )
-                .to(containerRef.current, {
-                    x: '-100%',
-                    duration: 0.5,
-                    ease: 'power4.inOut',
-                    delay: 0.3,
+                .from('.intro-bar', {
+                    scaleY: 0,
+                    transformOrigin: 'top',
+                    duration: 0.3,
+                    ease: 'power4.out',
+                    stagger: 0.05,
+                })
+                .to('.intro-bg', {
+                    y: '-100%',
+                    duration: 0.35,
+                    ease: 'power4.in',
+                    delay: 0.2,
                 })
                 .set(containerRef.current, { display: 'none' });
         },
@@ -50,14 +51,26 @@ export default function Intro() {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--bg-light)] dark:bg-[var(--bg-dark)]"
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
         >
-            <div className="relative">
-                <h1 className="intro-name font-display text-[clamp(2.5rem,15vw,12rem)] font-black leading-none tracking-tighter text-[var(--text-light)] dark:text-[var(--text-dark)]">
-                    JR
-                </h1>
-                <div className="intro-line absolute -bottom-4 left-0 h-[6px] w-full bg-[var(--accent)]"></div>
+            <div className="intro-bg absolute inset-0 flex items-center justify-center bg-[var(--bg-light)] dark:bg-[var(--bg-dark)]">
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
+                <div className="intro-bar absolute left-0 h-[12.5%] w-full bg-[var(--accent)]"></div>
             </div>
+            <h1 className="font-display relative z-10 font-black leading-none tracking-tighter">
+                <span className="intro-first block text-[clamp(2rem,15vw,14rem)] text-[var(--text-light)] dark:text-[var(--text-dark)]">
+                    JOREN
+                </span>
+                <span className="intro-last block text-[clamp(2rem,15vw,14rem)] text-[var(--accent)]">
+                    ROTHMAN
+                </span>
+            </h1>
         </div>
     );
 }
