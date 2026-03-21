@@ -112,23 +112,6 @@ export default function Resume() {
     );
 }
 
-function ResumeSection({
-    title,
-    children,
-}: {
-    title: string;
-    children: React.ReactNode;
-}) {
-    return (
-        <div>
-            <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-[var(--accent)] mb-6">
-                {title}
-            </h3>
-            {children}
-        </div>
-    );
-}
-
 function SkillGroup({ label, items }: { label: string; items: string[] }) {
     return (
         <div>

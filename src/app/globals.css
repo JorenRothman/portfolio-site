@@ -63,14 +63,6 @@ body {
     box-shadow: 6px 6px 0 var(--accent);
 }
 
-.brutal-shadow-dark {
-    box-shadow: 6px 6px 0 var(--text-light);
-}
-
-.dark .brutal-shadow-dark {
-    box-shadow: 6px 6px 0 var(--text-dark);
-}
-
 .brutal-shadow-hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -78,31 +70,4 @@ body {
 .brutal-shadow-hover:hover {
     transform: translate(-3px, -3px);
     box-shadow: 9px 9px 0 var(--accent);
-}
-
-@keyframes glitch {
-    0%, 100% {
-        transform: translate(0);
-        filter: none;
-    }
-    20% {
-        transform: translate(-2px, 2px);
-        filter: hue-rotate(90deg);
-    }
-    40% {
-        transform: translate(-2px, -2px);
-        filter: hue-rotate(180deg);
-    }
-    60% {
-        transform: translate(2px, 2px);
-        filter: hue-rotate(270deg);
-    }
-    80% {
-        transform: translate(2px, -2px);
-        filter: hue-rotate(360deg);
-    }
-}
-
-.animate-glitch {
-    animation: glitch 0.3s ease-in-out;
 }

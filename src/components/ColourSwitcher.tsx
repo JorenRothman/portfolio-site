@@ -68,7 +68,7 @@ export default function ColourSwitcher() {
 			type="button"
 			aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
 			onClick={toggleTheme}
-			className="brutal-border p-2 hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:border-[var(--accent)] transition-all duration-200"
+			className="brutal-border p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-[var(--accent)] hover:text-[var(--bg-dark)] hover:border-[var(--accent)] transition-all duration-200"
 		>
 			{isDark ? <Sun /> : <Moon />}
 		</button>

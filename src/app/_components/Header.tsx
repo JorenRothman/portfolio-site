@@ -47,11 +47,7 @@ export default function Header() {
             opacity: 0,
             duration: 0.6,
             stagger: 0.1,
-        }, '-=0.8')
-        .from('.header-index', {
-            opacity: 0,
-            duration: 0.4,
-        }, '-=0.4');
+        }, '-=0.8');
     }, { scope: containerRef });
 
     return (
