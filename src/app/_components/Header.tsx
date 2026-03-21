@@ -13,64 +13,77 @@ export default function Header() {
     useGSAP(
         () => {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                gsap.set('.header-line', { opacity: 1 });
+                gsap.set('.header-tag', { opacity: 1, x: 0 });
+                gsap.set('.header-name', { opacity: 1, y: 0, skewX: 0 });
+                gsap.set('.header-tag-line', { scaleX: 1 });
+                gsap.set('.header-desc', { opacity: 1, y: 0 });
+                gsap.set('.header-location', { opacity: 1, x: 0 });
                 gsap.set('.header-deco', { opacity: 1 });
                 return;
             }
 
-            const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+            const tl = gsap.timeline({
+                defaults: { ease: 'power4.out' },
+                delay: 1.5,
+            });
 
-            tl.from('.header-tag', {
-                x: -50,
+            tl.from('.header-deco', {
+                scale: 0,
                 opacity: 0,
-                duration: 0.8,
+                duration: 0.3,
+                stagger: 0.05,
             })
+                .from(
+                    '.header-tag',
+                    {
+                        x: -80,
+                        opacity: 0,
+                        skewX: -10,
+                        duration: 0.4,
+                    },
+                    '-=0.2'
+                )
                 .from(
                     '.header-name',
                     {
-                        y: 150,
+                        y: 200,
+                        skewX: 8,
                         opacity: 0,
-                        duration: 1,
-                        ease: 'expo.out',
+                        duration: 0.5,
                     },
-                    '-=0.4'
+                    '-=0.25'
                 )
+                .to('.header-name', {
+                    skewX: 0,
+                    duration: 0.15,
+                    ease: 'power4.in',
+                })
                 .from(
                     '.header-tag-line',
                     {
                         scaleX: 0,
-                        duration: 0.6,
+                        duration: 0.25,
                         transformOrigin: 'left',
                     },
-                    '-=0.6'
+                    '-=0.3'
                 )
                 .from(
                     '.header-desc',
                     {
-                        y: 40,
+                        y: 60,
                         opacity: 0,
-                        duration: 0.8,
+                        duration: 0.35,
                     },
-                    '-=0.4'
+                    '-=0.2'
                 )
                 .from(
                     '.header-location',
                     {
-                        x: -30,
+                        x: -50,
                         opacity: 0,
-                        duration: 0.6,
+                        duration: 0.3,
                     },
-                    '-=0.4'
-                )
-                .from(
-                    '.header-deco',
-                    {
-                        scale: 0,
-                        opacity: 0,
-                        duration: 0.6,
-                        stagger: 0.1,
-                    },
-                    '-=0.8'
+                    '-=0.2'
                 );
 
             ScrollTrigger.create({
