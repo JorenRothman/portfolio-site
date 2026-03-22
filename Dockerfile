@@ -35,6 +35,8 @@ RUN --mount=type=cache,id=${COOLIFY_RESOURCE_UUID}-next/cache,target=/app/.next/
 
 FROM nginx:alpine AS runner
 
+RUN apk add --no-cache curl
+
 COPY --from=builder --chown=nginx:nginx /app/out /usr/share/nginx/html
 
 RUN echo 'server { listen 80; root /usr/share/nginx/html; index index.html; location / { try_files $uri $uri/ $uri.html =404; } }' > /etc/nginx/conf.d/default.conf
