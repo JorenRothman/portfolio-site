@@ -37,7 +37,7 @@ FROM nginx:alpine AS runner
 
 COPY --from=builder --chown=nginx:nginx /app/out /usr/share/nginx/html
 
-RUN echo 'server { listen 80; root /usr/share/nginx/html; index index.html; location / { try_files $uri $uri/ $uri.html =404; } }' > /etc/nginx/http.d/default.conf
+RUN echo 'server { listen 80; root /usr/share/nginx/html; index index.html; location / { try_files $uri $uri/ $uri.html =404; } }' > /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
