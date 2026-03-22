@@ -33,21 +33,12 @@ RUN --mount=type=cache,id=${COOLIFY_RESOURCE_UUID}-next/cache,target=/app/.next/
   --mount=type=cache,id=${COOLIFY_RESOURCE_UUID}-node_modules/cache,target=/app/node_modules/.cache,uid=1001,gid=1001 \
   corepack enable pnpm && pnpm run build
 
-FROM base AS runner
+FROM nginx:alpine AS runner
 
-RUN apk add --no-cache curl
+COPY --from=builder --chown=nginx:nginx /app/out /usr/share/nginx/html
 
-WORKDIR /app
+RUN echo 'server { listen 80; root /usr/share/nginx/html; index index.html; location / { try_files $uri $uri/ $uri.html =404; } }' > /etc/nginx/http.d/default.conf
 
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
+EXPOSE 80
 
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-EXPOSE 3000
-
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
