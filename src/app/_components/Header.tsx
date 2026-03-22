@@ -23,7 +23,7 @@ export default function Header() {
 
             const tl = gsap.timeline({
                 defaults: { ease: 'power4.out' },
-                delay: 1.5,
+                delay: 1.9,
             });
 
             tl.from(
