@@ -85,7 +85,7 @@ export default function Resume() {
                                 items={['TypeScript', 'JavaScript', 'PHP']}
                             />
                             <SkillGroup
-                                label="Frameworks"
+                                label="Libs & Frams"
                                 items={[
                                     'Next.js',
                                     'React',
